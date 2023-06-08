@@ -55,6 +55,18 @@ int main(){
 		// close the file
 		file.close();
 		//tell me where it was written
-		cout << "\nFile successfully written to: " << filePath << endl;
+		cout << "\nFile successfully written to: " << filePath << endl << endl;
+	}
+
+	//where we will read the data from
+	ifstream readFromFile(filePath);
+	string textFromFile;
+
+	//read from file and display to console
+	if (readFromFile.is_open()) {
+		while (readFromFile) {
+			getline(readFromFile, textFromFile);
+			cout << textFromFile << endl;
+		}
 	}
 }
